@@ -1,27 +1,20 @@
 "use client";
 
-import Image from "next/image";
 import React from "react";
+import Image from "next/image";
 
 const Navbar: React.FC<{}> = () => {
   return (
-    <div className="w-full h-[65px] bg-['#111'] fixed backdrop-blur-sm z-50 px-10">
-      <div className="w-full h-full flex flex-row items-center justify-between m-auto px-[10px]">
-        <a href="/" className="h-auto w-auto flex flex-row items-center">
-          <Image
-            src="/Logo.svg"
-            alt="logo"
-            width={100}
-            height={100}
-            sizes="100vw"
-            className="w-full h-auto"
-          />
+    <div className="fixed z-50 h-[65px] w-full bg-['#111'] px-10 backdrop-blur-sm">
+      <div className="m-auto flex h-full w-full flex-row items-center justify-between px-[10px]">
+        <a href="/" className="flex h-auto w-auto flex-row items-center">
+          <Image src="/Logo.svg" alt="logo" width={100} height={100} sizes="100vw" className="h-auto w-full" />
         </a>
 
         <div className="flex flex-row gap-5">
           <div
             onClick={() => window.open("mailto:ibrahimmemon930@gmail.com")}
-            className=" z-[1] bg-transparent  padding-10 cursor-pointer bg-black hover:bg-[#2E2E2E] rounded-xl  text-white  py-2 px-5"
+            className=" padding-10 z-[1]  cursor-pointer rounded-xl bg-black bg-transparent px-5  py-2  text-white hover:bg-[#2E2E2E]"
           >
             Contact
           </div>
