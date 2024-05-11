@@ -1,63 +1,45 @@
-import React from "react";
 import Image from "next/image";
-import Link from "next/link";
+
+import { projects } from "@/constant/projects";
+import { PinCard } from "@/components/generics/PinCard";
 
 const Projects: React.FC<{}> = () => {
+  if (projects.length === 0) {
+    return null;
+  }
+
   return (
-    <section id="projects">
+    <section id="projects" className="text-center">
       <h1 className="pt-[35px] text-center text-6xl font-semibold text-white">PROJECTS</h1>
-      <p className=" text-1xl bg-gradient-to-r from-purple-700 to-orange-500 bg-clip-text  pb-5 text-center font-light tracking-[0.5em]  text-transparent ">
-        EXPLORE NOW
+
+      <p className="text-1xl bg-gradient-to-r from-purple-700 to-orange-500 bg-clip-text text-xl font-bold uppercase tracking-[0.5em] text-transparent">
+        WHAT I HAVE BUILT
       </p>
-      <div className=" 2xl container mx-auto  ">
-        <div className="mt-7 flex flex-col  md:flex-row">
-          <Link href="https://web.hr/" rel="noopener noreferrer" target="_blank" className="z-[1]">
-            <div className="mb-5 flex flex-row">
-              <Image src="/FirstProject.png" height={150} width={150} alt="WebHR Project" />
-              <div className="p-3">
-                <p className="text-xl font-semibold text-white">WebHR</p>
-                <p className="text-[10px] text-gray-500">
-                  Designed a modern UI website comprising more than 50 screens, along with the integration of a blog
-                  using Next.js.
-                </p>
+
+      <div className="mx-auto mt-8 grid w-full grid-cols-1 items-center justify-center gap-y-20 pt-5 lg:w-3/4 lg:grid-cols-3">
+        {projects.map((project) => {
+          return (
+            <PinCard key={project.title} href={project.url} title={project.url ?? "No link provided"}>
+              <div className="flex h-[20rem] w-[20rem] basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 ">
+                <h3 className="max-w-xs pb-2 text-base  font-bold text-slate-100">{project.title}</h3>
+
+                <div className="text-xs font-normal">
+                  <span className="text-slate-300 ">{project.description}</span>
+                </div>
+
+                <div className="mt-4 flex w-full flex-1 rounded-lg bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    className="h-full rounded object-cover"
+                    height={300}
+                    width={300}
+                  />
+                </div>
               </div>
-            </div>
-          </Link>
-          <Link href="https://hireside.com/" rel="noopener noreferrer" target="_blank" className="z-[1]">
-            <div className="mb-5 flex flex-row">
-              <Image src="/SecondProject.png" height={150} width={150} alt="HireSide" />
-              <div className="p-3">
-                <p className="text-xl font-semibold text-white">HireSide</p>
-                <p className="text-[10px] text-gray-500">
-                  Developed a web application on Next.js that allows users to apply for jobs, create job posts, and
-                  manage their company profiles.
-                </p>
-              </div>
-            </div>
-          </Link>
-        </div>
-        <div className="flex flex-col md:flex-row ">
-          <Link href="https://www.vergesystems.com/" rel="noopener noreferrer" target="_blank" className="z-[1]">
-            <div className="mb-5 flex flex-row">
-              <Image src="/ThirdProject.png" height={150} width={150} alt="VergeSystems" />
-              <div className=" p-3 ">
-                <p className="text-xl font-semibold text-white">Verge Systems</p>
-                <p className="text-[10px] text-gray-500">Developed the Verge Systems website using React.js.</p>
-              </div>
-            </div>
-          </Link>
-          <Link href="http://44.201.47.75/" rel="noopener noreferrer" target="_blank" className="z-[1]">
-            <div className="mb-5 flex flex-row">
-              <Image src="/FourProject.png" height={150} width={150} alt="Payoasis" />
-              <div className="p-3 ">
-                <p className="text-xl font-semibold text-white">Payoasis</p>
-                <p className="text-[10px] text-gray-500">
-                  Designed the modern UI for a banking website utilizing Gatsby.
-                </p>
-              </div>
-            </div>
-          </Link>
-        </div>
+            </PinCard>
+          );
+        })}
       </div>
     </section>
   );

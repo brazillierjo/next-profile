@@ -1,29 +1,32 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 
 import "./globals.css";
 
 import StarsCanvas from "@/components/main/StarsBackground";
 import Navbar from "@/components/Navbar";
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://developer-portfolio-ibrahim-memons-projects.vercel.app"),
-  title: "Ibrahim Portfolio",
-  description: "Developer Portfolio By Ibrahim Memon",
-  keywords: ["Developer", "Portfolio", "Developer Portflio", "Ibrahim Memon"],
+  title: "RINCON BRAZILLIER Johan | Portfolio",
+  description:
+    "Hi there! I'm Johan, a passionate developer showcasing my work in this portfolio. Explore my projects and get in touch! 📱",
+  keywords: ["Developer", "Portfolio", "Developer Portflio"],
   openGraph: {
-    title: "Ibrahim Memon",
-    description: "Software Engineer",
-    images: "/OpenGraph.jpg",
+    title: "RINCON BRAZILLIER Johan",
+    description: "JavaScript Software Engineer",
+    images: "/OpenGraph.png",
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} overflow-x-hidden overflow-y-scroll bg-[#111]`}>
+      <body className={`${poppins.className} overflow-x-hidden overflow-y-scroll bg-[#111]`}>
         <StarsCanvas />
         <Navbar />
         {children}

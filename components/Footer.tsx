@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Social_Icons } from "@/constant";
+import { Social_Icons } from "@/constant/socialLinks";
 
 const Footer: React.FC<{}> = () => {
   return (
@@ -15,6 +15,7 @@ const Footer: React.FC<{}> = () => {
           );
         })}
       </div>
+
       <p className="text-center text-sm text-gray-300">Created with ❤️ using Next.js</p>
     </div>
   );
