@@ -4,8 +4,6 @@ import { useState } from "react";
 import { cn } from "@/utils/cn";
 import { AnimatePresence, motion } from "framer-motion";
 
-import { MovingBorderButton } from "./MovingBorder";
-
 export const GridEffectHover = ({
   items,
   className,
@@ -55,7 +53,7 @@ export const GridEffectHover = ({
             <CardDescription>{item.title}</CardDescription>
 
             <div className="mt-6 flex flex-wrap gap-2 text-sm">
-              {item.skills && item.skills.map((skill) => <p>{skill}</p>)}
+              {item.skills && item.skills.map((skill) => <p key={skill}>{skill}</p>)}
             </div>
           </Card>
         </div>
