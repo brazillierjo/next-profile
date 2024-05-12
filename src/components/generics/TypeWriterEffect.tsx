@@ -67,8 +67,9 @@ export const TypewriterEffect = ({
     );
   };
   return (
-    <div className={cn("text-center text-base font-bold sm:text-xl md:text-3xl lg:text-5xl", className)}>
+    <div className={cn("text-center font-bold", className)}>
       {renderWords()}
+
       <motion.span
         initial={{
           opacity: 0,
@@ -82,7 +83,7 @@ export const TypewriterEffect = ({
           repeatType: "reverse",
         }}
         className={cn("inline-block h-4 w-[4px] rounded-sm bg-blue-500 md:h-6 lg:h-10", cursorClassName)}
-      ></motion.span>
+      />
     </div>
   );
 };
@@ -99,13 +100,13 @@ export const TypewriterEffectSmooth = ({
   className?: string;
   cursorClassName?: string;
 }) => {
-  // split text inside of words into array of characters
   const wordsArray = words.map((word) => {
     return {
       ...word,
       text: word.text.split(""),
     };
   });
+
   const renderWords = () => {
     return (
       <div>
@@ -142,14 +143,15 @@ export const TypewriterEffectSmooth = ({
         }}
       >
         <div
-          className="lg:text:3xl text-xs font-bold sm:text-base md:text-xl xl:text-5xl"
+          className="mx-auto text-center font-bold"
           style={{
             whiteSpace: "nowrap",
           }}
         >
-          {renderWords()}{" "}
-        </div>{" "}
+          {renderWords()}
+        </div>
       </motion.div>
+
       <motion.span
         initial={{
           opacity: 0,
@@ -164,7 +166,7 @@ export const TypewriterEffectSmooth = ({
           repeatType: "reverse",
         }}
         className={cn("block h-4 w-[4px]  rounded-sm bg-blue-500 sm:h-6 xl:h-12", cursorClassName)}
-      ></motion.span>
+      />
     </div>
   );
 };
