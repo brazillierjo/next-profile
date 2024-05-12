@@ -1,9 +1,17 @@
 "use client";
 
+import { useParams, useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 
 const Navbar: React.FC<{}> = () => {
+  const router = useRouter();
+  const path = useParams();
   const t = useTranslations("navbar");
+
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const locale = event.target.value;
+    router.push(`/${locale}`);
+  };
 
   return (
     <div className="fixed z-50 h-[65px] w-full bg-['#111'] px-10 backdrop-blur-sm">
@@ -14,6 +22,17 @@ const Navbar: React.FC<{}> = () => {
             Johan.
           </h2>
         </a>
+
+        <select
+          name="language"
+          id="language"
+          defaultValue={path.locale}
+          onChange={handleChange}
+          className="bg-transparent text-white"
+        >
+          <option value="en">English 🇺🇸</option>
+          <option value="fr">Français 🇫🇷</option>
+        </select>
 
         <div className="flex flex-row gap-5">
           <div
