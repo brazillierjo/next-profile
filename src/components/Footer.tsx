@@ -1,9 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Social_Icons } from "@/constant/socialLinks";
+import { Social_Icons } from "@/src/constant/socialLinks";
+import { useTranslations } from "next-intl";
 
 const Footer: React.FC<{}> = () => {
+  const t = useTranslations("footer");
+
   return (
     <div className=" 2xl container mx-auto pb-8 pt-[50px] ">
       <div className="flex justify-center pb-10 ">
@@ -16,7 +19,8 @@ const Footer: React.FC<{}> = () => {
         })}
       </div>
 
-      <p className="text-center text-sm text-gray-300">Created with ❤️ using Next.js</p>
+      <p className="text-center text-sm text-gray-300">{t("creation")}</p>
+      <p className="text-center text-sm text-gray-300">{t("copyright")}</p>
     </div>
   );
 };

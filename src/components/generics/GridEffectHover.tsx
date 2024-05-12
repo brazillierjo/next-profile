@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { cn } from "@/utils/cn";
+import { cn } from "@/src/utils/cn";
 import { AnimatePresence, motion } from "framer-motion";
 
 export const GridEffectHover = ({

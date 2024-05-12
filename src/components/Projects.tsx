@@ -1,19 +1,21 @@
 import Image from "next/image";
-
-import { projects } from "@/constant/projects";
-import { PinCard } from "@/components/generics/PinCard";
+import { PinCard } from "@/src/components/generics/PinCard";
+import { projects } from "@/src/constant/projects";
+import { useTranslations } from "next-intl";
 
 const Projects: React.FC<{}> = () => {
+  const t = useTranslations("projects");
+
   if (projects.length === 0) {
     return null;
   }
 
   return (
     <section id="projects" className="text-center">
-      <h1 className="pt-[35px] text-center text-6xl font-semibold text-white">PROJECTS</h1>
+      <h1 className="pt-[35px] text-center text-6xl font-semibold text-white">{t("title")}</h1>
 
       <p className="text-1xl bg-gradient-to-r from-purple-700 to-orange-500 bg-clip-text text-xl font-bold uppercase tracking-[0.5em] text-transparent">
-        WHAT I HAVE BUILT
+        {t("subTitle")}
       </p>
 
       <div className="mx-auto mt-8 grid w-full grid-cols-1 items-center justify-center gap-y-20 pt-5 lg:w-3/4 lg:grid-cols-3">

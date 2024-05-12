@@ -13,7 +13,7 @@ module.exports = {
     "^types$",
     "^@/constant/(.*)$",
     "^@/components/(.*)$",
-    "^@/app/(.*)$",
+    "^@/src/app/(.*)$",
     "",
     "^[./]",
   ],

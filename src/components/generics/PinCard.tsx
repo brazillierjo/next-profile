@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { cn } from "@/utils/cn";
+import { cn } from "@/src/utils/cn";
 import { motion } from "framer-motion";
 
 export const PinCard = ({

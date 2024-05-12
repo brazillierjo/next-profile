@@ -1,11 +1,14 @@
 "use client";
 
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { AiOutlineDownload } from "react-icons/ai";
 
 import { TypewriterEffectSmooth } from "./generics/TypeWriterEffect";
 
 const Banner: React.FC<{}> = () => {
+  const t = useTranslations("banner");
+
   const name = [
     {
       text: "RINCON",
@@ -41,7 +44,7 @@ const Banner: React.FC<{}> = () => {
 
         <div className="flex justify-center">
           <p className="max-w-[600px] text-2xl font-medium  tracking-tighter text-gray-300">
-            I do{" "}
+            {t("catchPhrase")}{" "}
             <span className="bg-gradient-to-r from-red-500 to-blue-400 bg-clip-text font-semibold text-transparent">
               {"<Code />"}
             </span>
@@ -49,8 +52,8 @@ const Banner: React.FC<{}> = () => {
         </div>
 
         <p className="text-md my-5 max-w-[600px] text-gray-200">
-          Hi there! 👋 <br />
-          I'm Johan, a Software Engineer passionate about crafting user-friendly mobile apps. Check out my work below!
+          {t("hello")} <br />
+          {t("hello2")}
         </p>
 
         <a
@@ -58,7 +61,7 @@ const Banner: React.FC<{}> = () => {
           href="./CV.pdf"
           download="CV-RINCON-BRAZILLIER-Johan.pdf"
         >
-          Curriculum vitæ
+          {t("curriculumVitae")}
           <AiOutlineDownload className="h-6 w-6" />
         </a>
 
@@ -67,7 +70,7 @@ const Banner: React.FC<{}> = () => {
             onClick={() => window.open("mailto:j.brazillier@gmail.com")}
             className="padding-20 z-[1] rounded-3xl border-[0.1px] border-white px-10 py-3 font-semibold text-white hover:border-transparent hover:bg-white hover:text-black "
           >
-            Contact me 📨
+            {t("contactMe")}
           </button>
         </div>
       </div>

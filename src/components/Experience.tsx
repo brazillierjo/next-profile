@@ -1,14 +1,17 @@
-import { experiences } from "@/constant/experiences";
-import { CardBody, CardContainer, CardItem } from "@/components/generics/CardEffect";
-import { MovingBorderButton } from "@/components/generics/MovingBorder";
+import { CardBody, CardContainer, CardItem } from "@/src/components/generics/CardEffect";
+import { MovingBorderButton } from "@/src/components/generics/MovingBorder";
+import { experiences } from "@/src/constant/experiences";
+import { useTranslations } from "next-intl";
 
 const Experience: React.FC<{}> = () => {
+  const t = useTranslations("experiences");
+
   return (
     <section id="experience">
-      <h1 className="pt-[35px] text-center text-6xl font-semibold text-white">EXPERIENCES</h1>
+      <h1 className="pt-[35px] text-center text-6xl font-semibold text-white">{t("title")}</h1>
 
       <p className="text-1xl bg-gradient-to-r from-purple-700 to-orange-500 bg-clip-text text-center text-xl font-bold uppercase tracking-[0.5em] text-transparent">
-        WHERE I HAVE WORKED
+        {t("subTitle")}
       </p>
 
       <div className="z-50 mx-auto mt-8 grid w-full grid-cols-1 items-center justify-center gap-y-10 lg:w-3/4 lg:grid-cols-2">

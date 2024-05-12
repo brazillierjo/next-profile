@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
 
-import "./globals.css";
+import "../globals.css";
 
-import StarsCanvas from "@/components/main/StarsBackground";
-import Navbar from "@/components/Navbar";
+import StarsCanvas from "@/src/components/main/StarsBackground";
+import Navbar from "@/src/components/Navbar";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -16,20 +18,25 @@ export const metadata: Metadata = {
   description:
     "Hi there! I'm Johan, a passionate developer showcasing my work in this portfolio. Explore my projects and get in touch! 📱",
   keywords: ["Developer", "Portfolio", "Developer Portflio"],
-  openGraph: {
-    title: "RINCON BRAZILLIER Johan",
-    description: "JavaScript Software Engineer",
-    images: "/OpenGraph.png",
-  },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({
+  children,
+  params: { locale },
+}: {
+  children: React.ReactNode;
+  params: { locale: string };
+}) {
+  const messages = await getMessages();
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body className={`${poppins.className} overflow-x-hidden overflow-y-scroll bg-[#111]`}>
-        <StarsCanvas />
-        <Navbar />
-        {children}
+        <NextIntlClientProvider messages={messages}>
+          <StarsCanvas />
+          <Navbar />
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );

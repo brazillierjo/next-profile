@@ -1,6 +1,10 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+
 const Navbar: React.FC<{}> = () => {
+  const t = useTranslations("navbar");
+
   return (
     <div className="fixed z-50 h-[65px] w-full bg-['#111'] px-10 backdrop-blur-sm">
       <div className="m-auto flex h-full w-full flex-row items-center justify-between px-[10px]">
@@ -16,7 +20,7 @@ const Navbar: React.FC<{}> = () => {
             onClick={() => window.open("mailto:j.brazillier@gmail.com")}
             className=" padding-10 z-[1] cursor-pointer rounded-xl bg-black bg-transparent px-5  py-2  text-white hover:bg-[#2E2E2E]"
           >
-            Contact 📧
+            {t("contact")}
           </div>
         </div>
       </div>
