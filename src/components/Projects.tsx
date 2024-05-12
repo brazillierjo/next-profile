@@ -1,14 +1,24 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useParams } from "next/navigation";
 import { PinCard } from "@/src/components/generics/PinCard";
-import { projects } from "@/src/constant/projects";
+import { enProjects, frProjects, IProject } from "@/src/constant/projects";
 import { useTranslations } from "next-intl";
 
 const Projects: React.FC<{}> = () => {
-  const t = useTranslations("projects");
+  const [projects, setProjects] = useState<null | IProject[]>(null);
 
-  if (projects.length === 0) {
-    return null;
-  }
+  const t = useTranslations("projects");
+  const path = useParams();
+
+  useEffect(() => {
+    if (path.locale === "en") setProjects(enProjects);
+    if (path.locale === "fr") setProjects(frProjects);
+  }, [path.locale]);
+
+  if (projects === null) return null;
 
   return (
     <section id="projects" className="text-center">
