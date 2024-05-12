@@ -22,17 +22,17 @@ const Projects: React.FC<{}> = () => {
 
   return (
     <section id="projects" className="text-center">
-      <h1 className="pt-[35px] text-center text-6xl font-semibold text-white">{t("title")}</h1>
+      <h1 className="mb-4 pt-[35px] text-center text-6xl font-semibold text-white">{t("title")}</h1>
 
       <p className="text-1xl bg-gradient-to-r from-purple-700 to-orange-500 bg-clip-text text-xl font-bold uppercase tracking-[0.5em] text-transparent">
         {t("subTitle")}
       </p>
 
-      <div className="mx-auto mt-8 grid w-full grid-cols-1 items-center justify-center gap-y-20 pt-5 lg:w-3/4 lg:grid-cols-3">
+      <div className="mx-auto mt-8 grid w-full grid-cols-1 items-center justify-center gap-y-16 pt-5 lg:w-3/4 lg:grid-cols-2">
         {projects.map((project) => {
           return (
             <PinCard key={project.title} href={project.url} title={project.url ?? "No link provided"}>
-              <div className="flex h-[20rem] w-[20rem] basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 ">
+              <div className="flex h-[20rem] w-[22rem] basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 ">
                 <h3 className="max-w-xs pb-2 text-base  font-bold text-slate-100">{project.title}</h3>
 
                 <div className="text-xs font-normal">

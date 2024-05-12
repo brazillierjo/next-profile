@@ -14,7 +14,7 @@ const Navbar: React.FC<{}> = () => {
   };
 
   return (
-    <div className="fixed z-50 h-[65px] w-full bg-['#111'] px-10 backdrop-blur-sm">
+    <div className="fixed z-50 h-[65px] w-full bg-['#111'] backdrop-blur-sm lg:px-10">
       <div className="m-auto flex h-full w-full flex-row items-center justify-between px-[10px]">
         <a href="/" className="flex h-auto w-auto flex-row items-center gap-3">
           👨‍💻
@@ -37,7 +37,7 @@ const Navbar: React.FC<{}> = () => {
         <div className="flex flex-row gap-5">
           <div
             onClick={() => window.open("mailto:j.brazillier@gmail.com")}
-            className=" padding-10 z-[1] cursor-pointer rounded-xl bg-black bg-transparent px-5  py-2  text-white hover:bg-[#2E2E2E]"
+            className="cursor-pointer rounded-xl bg-black bg-transparent px-2 text-white hover:bg-[#2E2E2E]"
           >
             {t("contact")}
           </div>

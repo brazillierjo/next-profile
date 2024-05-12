@@ -38,7 +38,7 @@ const Banner: React.FC<{}> = () => {
           />
         </div>
 
-        <div className="mt-6 text-3xl font-semibold lg:text-4xl">
+        <div className="mt-6 text-xl font-semibold lg:text-4xl">
           <TypewriterEffectSmooth words={name} />
         </div>
 

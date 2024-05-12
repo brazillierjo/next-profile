@@ -19,7 +19,7 @@ export const GridEffectHover = ({
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <div className={cn("grid grid-cols-1 py-10  md:grid-cols-2  lg:grid-cols-3", className)}>
+    <div className={cn("grid grid-cols-1 py-10 md:grid-cols-2 lg:grid-cols-3", className)}>
       {items.map((item, idx) => (
         <div
           key={item?.title}
@@ -66,7 +66,7 @@ export const Card = ({ className, children }: { className?: string; children: Re
   return (
     <div
       className={cn(
-        "relative z-20 h-full w-full overflow-hidden rounded-2xl border border-transparent bg-white p-4 group-hover:border-slate-700",
+        "relative z-20 h-full w-full overflow-hidden rounded-2xl border border-transparent bg-white group-hover:border-slate-700",
         className
       )}
     >
