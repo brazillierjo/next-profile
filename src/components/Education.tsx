@@ -15,7 +15,7 @@ const Education: React.FC<{}> = () => {
   useEffect(() => {
     if (path.locale === "en") setEducations(enEducations);
     if (path.locale === "fr") setEducations(frEducations);
-  });
+  }, [path.locale]);
 
   if (educations === null) return null;
 

@@ -1,10 +1,24 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
 import { CardBody, CardContainer, CardItem } from "@/src/components/generics/CardEffect";
 import { MovingBorderButton } from "@/src/components/generics/MovingBorder";
-import { experiences } from "@/src/constant/experiences";
+import { enExperiences, frExperiences, IExperience } from "@/src/constant/experiences";
 import { useTranslations } from "next-intl";
 
 const Experience: React.FC<{}> = () => {
+  const [experiences, setExperiences] = useState<null | IExperience[]>(null);
+
   const t = useTranslations("experiences");
+  const path = useParams();
+
+  useEffect(() => {
+    if (path.locale === "en") setExperiences(enExperiences);
+    if (path.locale === "fr") setExperiences(frExperiences);
+  }, [path.locale]);
+
+  if (experiences === null) return null;
 
   return (
     <section id="experience">
@@ -17,7 +31,7 @@ const Experience: React.FC<{}> = () => {
       <div className="z-50 mx-auto mt-8 grid w-full grid-cols-1 items-center justify-center gap-y-10 lg:w-3/4 lg:grid-cols-2">
         {experiences.map((experience) => {
           return (
-            <CardContainer>
+            <CardContainer key={experience.title}>
               <CardBody className="group/card relative h-auto min-h-[200px] w-auto rounded-xl border border-black/[0.1] bg-gray-50 p-6 sm:w-[30rem] dark:border-white/[0.2] dark:bg-black dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1]">
                 <div className="flex justify-between">
                   <CardItem translateZ="50" className="text-xl font-bold text-neutral-600 dark:text-white">

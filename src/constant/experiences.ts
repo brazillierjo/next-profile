@@ -1,4 +1,4 @@
-interface Experience {
+export interface IExperience {
   company: string;
   title: string;
   years: string;
@@ -6,7 +6,7 @@ interface Experience {
   description: string;
 }
 
-export const experiences: Experience[] = [
+export const enExperiences: IExperience[] = [
   {
     company: "La Boîte Immo",
     title: "Software engineer",
@@ -36,6 +36,8 @@ export const experiences: Experience[] = [
       "TypeScript",
       "Next.js",
       "React",
+      "NodeJS",
+      "Express",
       "REST API",
       "TailwindCSS",
       "Firebase",
@@ -49,18 +51,7 @@ export const experiences: Experience[] = [
     years: "2022",
     description:
       "Crafting engaging and user-friendly front-end experiences for clients, helping them achieve their online presence goals.",
-    technologies: [
-      "Wordpress",
-      "JavaScript",
-      "TypeScript",
-      "React",
-      "NodeJS",
-      "Express",
-      "Prisma",
-      "Zod",
-      "REST API",
-      "Bootstrap",
-    ],
+    technologies: ["Wordpress", "JavaScript", "TypeScript", "React", "REST API", "Bootstrap"],
   },
   {
     company: "Vitassurance",
@@ -84,6 +75,77 @@ export const experiences: Experience[] = [
     years: "2011 - 2014",
     description:
       "Acquired versatile skills and valuable experience by working in diverse roles across multiple industries.",
+    technologies: null,
+  },
+];
+
+export const frExperiences: IExperience[] = [
+  {
+    company: "La Boîte Immo",
+    title: "Développeur fullstack",
+    years: "2022 (en cours)",
+    description:
+      "Développement de plusieurs applications web pour la gestion de biens immobiliers pour aider les agents immobiliers indépendants.",
+    technologies: [
+      "TypeScript",
+      "Next.js",
+      "React",
+      "TailwindCSS",
+      "JEST",
+      "Docker",
+      "api-platform",
+      "Symfony",
+      "AGILE",
+    ],
+  },
+  {
+    company: "JoCorp",
+    title: "Développeur freelance",
+    years: "2022",
+    description:
+      "Mise en place de solutions sur mesure aux clients, en veillant à ce que leurs besoins uniques soient satisfaits avec une expertise de développement de haute qualité.",
+    technologies: [
+      "JavaScript",
+      "TypeScript",
+      "Next.js",
+      "React",
+      "REST API",
+      "TailwindCSS",
+      "Firebase",
+      "MongoDB",
+      "SQL",
+    ],
+  },
+  {
+    company: "GetUp Agency",
+    title: "Développeur front-end",
+    years: "2022",
+    description:
+      "Créer des interfaces utilisateur attractives et conviviales pour les clients, les aidant à atteindre leurs objectifs de présence en ligne.",
+    technologies: ["Wordpress", "JavaScript", "TypeScript", "React", "REST API", "Bootstrap"],
+  },
+  {
+    company: "Vitassurance",
+    title: "Développeur front-end & back-end",
+    years: "2021",
+    description:
+      "Un site web de courtage en assurance qui vous permet de comparer rapidement les offres de différents assureurs. Une fois que le visiteur remplit le formulaire, ses informations sont envoyées via une API à un CRM pour gérer le dossier du nouveau client.",
+    technologies: ["HTML", "CSS", "JavaScript", "REST API", "NodeJS", "express"],
+  },
+  {
+    company: "poupepoupi.com",
+    title: "Web Analyste (6 ans)",
+    years: "2014 - 2020",
+    description:
+      "Fournir des insights et des optimisations pour maximiser les performances du site web et stimuler la croissance de l'entreprise grâce à des stratégies basées sur les données.",
+    technologies: ["SEO", "Prestashop"],
+  },
+  {
+    company: "Grandes enseignes | Jardineries | Animation",
+    title: "Petits jobs dans plusieurs domaines",
+    years: "2011 - 2014",
+    description:
+      "Acquisition de compétences polyvalentes et d'une expérience précieuse en travaillant dans divers rôles à travers plusieurs industries.",
     technologies: null,
   },
 ];
