@@ -1,9 +1,23 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
 import { GridEffectHover } from "@/src/components/generics/GridEffectHover";
-import { educations } from "@/src/constant/educations";
+import { enEducations, frEducations, IEducation } from "@/src/constant/educations";
 import { useTranslations } from "next-intl";
 
 const Education: React.FC<{}> = () => {
+  const [educations, setEducations] = useState<null | IEducation[]>(null);
+
   const t = useTranslations("education");
+  const path = useParams();
+
+  useEffect(() => {
+    if (path.locale === "en") setEducations(enEducations);
+    if (path.locale === "fr") setEducations(frEducations);
+  });
+
+  if (educations === null) return null;
 
   return (
     <section id="experience">
